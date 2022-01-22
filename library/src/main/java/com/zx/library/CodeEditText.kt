@@ -1,29 +1,27 @@
 package com.zx.library
 
 import android.R
-import android.annotation.SuppressLint
 import android.content.ClipboardManager
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
-import android.widget.EditText
+import androidx.appcompat.widget.AppCompatEditText
 
 /**
  * @作者： liqiang
  * @日期： 2022/1/5 14:40
  * @描述：
  **/
-@SuppressLint("AppCompatCustomView")
 internal class CodeEditText @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null
-) : EditText(context, attrs) {
+) : AppCompatEditText(context, attrs) {
 
     override fun onSelectionChanged(selStart: Int, selEnd: Int) {
         super.onSelectionChanged(selStart, selEnd)
         if (selStart == selEnd) {
-            setSelection(text.length)
+            setSelection(text?.length ?: 0)
         }
     }
 

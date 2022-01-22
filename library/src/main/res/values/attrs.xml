@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="VerificationCodeView">
+        <attr name="verify_code_number" format="integer"/>
+        <attr name="verify_text_size" format="dimension"/>
+        <attr name="verify_code_width" format="dimension"/>
+        <attr name="verify_code_height" format="dimension"/>
+        <attr name="verify_code_margin" format="dimension"/>
+        <attr name="verify_code_color" format="color"/>
+        <attr name="verify_code_corner" format="dimension"/>
+        <attr name="verify_code_stroke_width" format="dimension"/>
+        <attr name="verify_code_stroke_color" format="dimension"/>
+        <attr name="verify_cursor_width" format="dimension"/>
+        <attr name="verify_cursor_height" format="dimension"/>
+        <attr name="verify_cursor_color" format="color"/>
+        <attr name="verify_cursor_corner" format="dimension"/>
+    </declare-styleable>
+
+</resources>
