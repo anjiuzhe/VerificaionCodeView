@@ -27,14 +27,10 @@ xml
         android:id="@+id/code_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:verify_code_width="40dp" 
         app:verify_code_height="40dp"
         app:verify_code_margin="10dp"
-        app:verify_code_number="6"
-        app:verify_code_width="40dp" />
+        app:verify_code_number="6"/>
 ```
 设置内容
 
