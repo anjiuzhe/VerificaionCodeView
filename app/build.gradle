@@ -42,5 +42,4 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     implementation project(':library')
-//    implementation 'com.github.AnJiuZhe:VerificaionCodeView:1.0.0'
 }
