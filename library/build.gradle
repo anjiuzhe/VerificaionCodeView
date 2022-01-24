@@ -17,6 +17,10 @@ afterEvaluate {
     }
 }
 
+configurations.all {
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+}
+
 android {
     compileSdk 31
 

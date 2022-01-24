@@ -20,6 +20,7 @@ import android.widget.TextView
 import androidx.annotation.NonNull
 import androidx.core.app.ActivityCompat
 import androidx.core.widget.doAfterTextChanged
+import kotlin.math.max
 
 /**
  * @作者： liqiang
@@ -44,6 +45,7 @@ class VerificationCodeView @JvmOverloads constructor(
     private var cursorColor = 0
     private var cursorCorner = 0
 
+    private lateinit var editText: CodeEditText
     private lateinit var linearLayout: LinearLayout
     private lateinit var cursorView: View
     private var listener: OnCodeChangeListener? = null
@@ -132,13 +134,13 @@ class VerificationCodeView @JvmOverloads constructor(
     }
 
     private fun initEditText() {
-        val editText = CodeEditText(context)
+        editText = CodeEditText(context)
         editText.filters = arrayOf<InputFilter>(LengthFilter(6))
         editText.imeOptions = EditorInfo.IME_FLAG_NO_EXTRACT_UI
         editText.inputType = EditorInfo.TYPE_CLASS_NUMBER
         editText.alpha = 0f
         editText.gravity = Gravity.CENTER
-        editText.isCursorVisible = true
+        editText.isCursorVisible = false
         editText.setBackgroundColor(Color.TRANSPARENT)
         val editTextParams = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT)
         addView(editText, editTextParams)
@@ -158,6 +160,7 @@ class VerificationCodeView @JvmOverloads constructor(
                     setCursorMargin(i + 1)
                 }
             }
+            listener?.onCodeChange(it.toString())
         }
     }
 
@@ -197,7 +200,7 @@ class VerificationCodeView @JvmOverloads constructor(
             override fun onGlobalLayout() {
                 if (linearLayout.childCount > 0) {
                     codeWidth = linearLayout.getChildAt(0).width
-                    setCursorMargin(0)
+                    setCursorMargin(editText.length())
                     handler.sendEmptyMessageDelayed(MSG_HIDE_CURSOR, cursorInterval)
                 }
                 viewTreeObserver.removeOnGlobalLayoutListener(this)
@@ -231,6 +234,7 @@ class VerificationCodeView @JvmOverloads constructor(
             val textView = linearLayout.getChildAt(i) as TextView
             textView.text = text[i].toString()
         }
+        editText.setText(text.substring(0, length))
     }
 
     fun setOnCodeChangeListener(listener: OnCodeChangeListener) {

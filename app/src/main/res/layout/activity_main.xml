@@ -20,4 +20,16 @@
         app:verify_code_number="6"
         app:verify_code_width="40dp" />
 
+    <TextView
+        android:id="@+id/text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="验证码输入框"
+        android:layout_marginBottom="30dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/code_view"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

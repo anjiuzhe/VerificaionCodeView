@@ -1,6 +1,5 @@
 package com.zx.library
 
-import android.R
 import android.content.ClipboardManager
 import android.content.Context
 import android.graphics.Color
@@ -26,14 +25,15 @@ internal class CodeEditText @JvmOverloads constructor(
     }
 
     override fun onTextContextMenuItem(id: Int): Boolean {
-        if (id == R.id.paste) {
+        val consumed = super.onTextContextMenuItem(id)
+        if (id == android.R.id.paste) {
             val clipboardManager = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
             if (clipboardManager.text != null) {
                 val text = clipboardManager.text.toString()
                 setText(text)
             }
         }
-        return super.onTextContextMenuItem(id)
+        return consumed
     }
 
     override fun getTextSelectHandleLeft(): Drawable {
