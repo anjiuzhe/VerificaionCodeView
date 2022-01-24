@@ -16,7 +16,7 @@ app build.gradle 的 dependencies 中添加
 
 ```
 dependencies {
-    implementation 'com.github.AnJiuZhe:VerificaionCodeView:1.0.2'
+    implementation 'com.github.anjiuzhe:VerificaionCodeView:1.0.2'
 }
 ```
 
