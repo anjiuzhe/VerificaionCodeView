@@ -2,7 +2,7 @@
 
 * 支持长按连续删除
 
-![image](/screenhot/photo1.jpg)
+![图片](/screenhot/photo1.jpg)
 
 ##### 1、添加 Gradle 依赖
 
